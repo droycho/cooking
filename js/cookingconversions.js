@@ -1,28 +1,42 @@
-var poundsToKilograms = function() {
-	var input = parseInt(prompt("What is the weight in Pounds?"));
-	var output = (input * 0.453592);
-  alert("The weight is " + output + "kgs.");
+var poundsToKilograms = function(number1) {
+	return number1 * 0.453592;
 };
 
-var ounceToGram = function() {
-	var input = parseInt(prompt("What is the weight in ounces?"));
-	var output = (input * 28.3495);
-  alert("The weight is " + output + "gs.");
+var ounceToGram = function(number1) {
+	return number1 * 28.3495;
 };
 
-var pintToLiter = function() {
-	var input = parseInt(prompt("What is the volume in pints?"));
-	var output = (input * 0.473176);
-  alert("The volume is " + output + "l.");
+var pintToLiter = function(number1) {
+	return number1 * 0.473176;
 };
 
-var flozToMl = function() {
-	var input = parseInt(prompt("What is the volume in Fluid Ounces?"));
-	var output = (input * 29.5735);
-  alert("The volume is " + output + "ml.");
+var flozToMl = function(number1) {
+	return number1 * 29.5735;
 };
 
-poundsToKilograms();
-ounceToGram();
-pintToLiter();
-flozToMl();
+$(document).ready(function() {
+  $("form#poundsToKilograms").submit(function(event) {
+    event.preventDefault();
+    var number1 = parseInt($("#pounds").val());
+    var result = poundsToKilograms(number1) ;
+    $("#outputKilos").text(result);
+  });
+  $("form#ounceToGram").submit(function(event) {
+    event.preventDefault();
+    var number1 = parseInt($("#ounces").val());
+    var result = ounceToGram(number1);
+    $("#outputGrams").text(result);
+  });
+  $("form#pintToLiter").submit(function(event) {
+    event.preventDefault();
+    var number1 = parseInt($("#pints").val());
+    var result = pintToLiter(number1);
+    $("#outputLiters").text(result);
+  });
+  $("form#flozToMl").submit(function(event) {
+    event.preventDefault();
+    var number1 = parseInt($("#floz").val());
+    var result = flozToMl(number1);
+    $("#outputMls").text(result);
+  });
+});
